@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script defer src="https://kit.fontawesome.com/19ce154370.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<canvas id="viewport"></canvas>
+
+<section id="HUD">
+
+    <ul class="tools-sidebar" id="objectsMenu">
+        <li>
+            <button id="addCube"> <i class="fas fa-cube"></i> </button>
+        </li>
+        <li>
+            <button id="addPlane"> <i class="far fa-square"></i> </button>
+        </li>
+        <li>
+            <button id="addSphere"> <i class="far fa-circle"></i> </button>
+        </li>
+
+        <hr class="tools-sidebar__divider" align="center" >
+
+        <li>
+            <button id="addPointLight"> <i class="far fa-lightbulb"></i> </button>
+        </li>
+        <li>
+            <button id="addRectAreaLight"> <i class="fas fa-square"></i> </button>
+        </li>
+        <li>
+            <button id="addDirectionalLight"> <i class="far fa-sun"></i> </button>
+        </li>
+    </ul>
+
+    <form action="" class="properties-form" id="propertiesForm">
+
+        <!-- Meshes -->
+        <div class="color-wrap">
+            <label>
+                Material color
+                <input type="color" id="color" data-property="color" value="#FFFFFF">
+            </label>
+
+            <label>
+                Emissive color
+                <input type="color" id="emissive" data-property="emissive" value="#000000">
+            </label>
+        </div>
+
+        <label>
+            Shininess
+            <input type="range" id="shininess" min="0" max="500" step="1" data-property="shininess">
+        </label>
+
+        <label>
+            Roughness
+            <input type="range" id="roughness" min="0" max="1" step=".01" data-property="roughness">
+        </label>
+
+        <label>
+            Metalness
+            <input type="range" id="metalness" min="0" max="1" step=".01" data-property="metalness">
+        </label>
+
+        <select id="materialType" data-property="material">
+            <option value="MeshBasicMaterial">MeshBasicMaterial</option>
+            <option value="MeshToonMaterial">MeshToonMaterial</option>
+            <option value="MeshLambertMaterial">MeshLambertMaterial</option>
+            <option value="MeshPhongMaterial">MeshPhongMaterial</option>
+            <option value="MeshStandardMaterial">MeshStandardMaterial</option>
+            <option value="MeshPhysicalMaterial">MeshPhysicalMaterial</option>
+            <option value="MeshNormalMaterial">MeshNormalMaterial</option>
+            <option value="MeshDepthMaterial">MeshDepthMaterial</option>
+        </select>
+
+        <select id="sideType" data-property="side">
+            <option value="FrontSide">FrontSide</option>
+            <option value="DoubleSide">DoubleSide</option>
+            <option value="BackSide">BackSide</option>
+        </select>
+
+        <fieldset id="axises" class="axises">
+            <input type="number" min="-5000" max="5000" id="axisX" placeholder="X">
+            <input type="number" min="-5000" max="5000" id="axisY" placeholder="Y">
+            <input type="number" min="-5000" max="5000" id="axisZ" placeholder="Z">
+        </fieldset>
+
+    </form>
+
+    <p id="transformHints">
+        [T] - Translate mode,
+        [R] - Rotate mode,
+        [S] - Scale mode,
+        [Esc] - Remove focus,
+        [Del] - Remove mesh,
+    </p>
+
+</section>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src='assets/js/jqueryUI.min.js'></script>
+<script src="build/three.js"></script>
+<script src="assets/js/main.js" type="module"></script>
+
+</body>
+</html>
